@@ -1,0 +1,14 @@
+C:\Users\z0049w2y\source\repos\TrainingWebService\TrainingWebService\bin\Debug\netcoreapp2.1\TrainingWebService.deps.json
+C:\Users\z0049w2y\source\repos\TrainingWebService\TrainingWebService\bin\Debug\netcoreapp2.1\TrainingWebService.runtimeconfig.json
+C:\Users\z0049w2y\source\repos\TrainingWebService\TrainingWebService\bin\Debug\netcoreapp2.1\TrainingWebService.runtimeconfig.dev.json
+C:\Users\z0049w2y\source\repos\TrainingWebService\TrainingWebService\bin\Debug\netcoreapp2.1\TrainingWebService.dll
+C:\Users\z0049w2y\source\repos\TrainingWebService\TrainingWebService\bin\Debug\netcoreapp2.1\TrainingWebService.pdb
+C:\Users\z0049w2y\source\repos\TrainingWebService\TrainingWebService\obj\Debug\netcoreapp2.1\TrainingWebService.csprojAssemblyReference.cache
+C:\Users\z0049w2y\source\repos\TrainingWebService\TrainingWebService\obj\Debug\netcoreapp2.1\TrainingWebService.csproj.CoreCompileInputs.cache
+C:\Users\z0049w2y\source\repos\TrainingWebService\TrainingWebService\obj\Debug\netcoreapp2.1\TrainingWebService.RazorAssemblyInfo.cache
+C:\Users\z0049w2y\source\repos\TrainingWebService\TrainingWebService\obj\Debug\netcoreapp2.1\TrainingWebService.RazorAssemblyInfo.cs
+C:\Users\z0049w2y\source\repos\TrainingWebService\TrainingWebService\obj\Debug\netcoreapp2.1\TrainingWebService.AssemblyInfoInputs.cache
+C:\Users\z0049w2y\source\repos\TrainingWebService\TrainingWebService\obj\Debug\netcoreapp2.1\TrainingWebService.AssemblyInfo.cs
+C:\Users\z0049w2y\source\repos\TrainingWebService\TrainingWebService\obj\Debug\netcoreapp2.1\TrainingWebService.RazorTargetAssemblyInfo.cache
+C:\Users\z0049w2y\source\repos\TrainingWebService\TrainingWebService\obj\Debug\netcoreapp2.1\TrainingWebService.dll
+C:\Users\z0049w2y\source\repos\TrainingWebService\TrainingWebService\obj\Debug\netcoreapp2.1\TrainingWebService.pdb
