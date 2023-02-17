@@ -99,12 +99,8 @@
         <div class="row">
           <div class="col-lg-8">
             <img src="assets/img/course-details.jpg" class="img-fluid" alt="">
-            <h3>Course Header</h3>
-            <p>
-              Course Description...................... 
-              ............................
-              ......................................
-
+            <h3 id="courseHeader">CourseHeader</h3>
+            <p id="courseDescription">
             </p>
           </div>
           <div class="col-lg-4">
@@ -119,16 +115,6 @@
               <p> IEC 61850, Digsi-Fundamentals</p>
             </div>
 
-            <!-- <div class="course-info d-flex justify-content-between align-items-center">
-              <h5>Available Seats</h5>
-              <p>30</p>
-            </div>
-
-            <div class="course-info d-flex justify-content-between align-items-center">
-              <h5>Schedule</h5>
-              <p>5.00 pm - 7.00 pm</p>
-            </div>  -->
-
           </div>
         </div>
 
@@ -140,8 +126,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="row">
-          <div class="col-lg-3">
-            <ul class="nav nav-tabs flex-column">
+          <div id="ChapterUL" class="col-lg-3">
+            <!-- <ul class="nav nav-tabs flex-column">
               <li class="nav-item">
                 <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Chapters</a>
               </li>
@@ -157,11 +143,11 @@
               <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Chapters</a>
               </li>
-            </ul>
+            </ul> -->
           </div>
           <div class="col-lg-9 mt-4 mt-lg-0">
-            <div class="tab-content">
-              <div class="tab-pane active show" id="tab-1">
+            <div id="SubModuleTabContent" class="tab-content">
+              <!-- <div class="tab-pane active show" id="tab-1">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
                     <h3>Chapters</h3>
@@ -172,8 +158,8 @@
                     <img src="assets/img/course-details-tab-1.png" alt="" class="img-fluid">
                   </div>
                 </div>
-              </div>
-              <div class="tab-pane" id="tab-2">
+              </div> -->
+              <!-- <div class="tab-pane" id="tab-2">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
                     <h3>Chapters</h3>
@@ -220,7 +206,7 @@
                     <img src="assets/img/course-details-tab-5.png" alt="" class="img-fluid">
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -318,6 +304,103 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script type="text/javascript">
+
+    const id = new URLSearchParams(window.location.search).get('id');
+    const courseHeader = new URLSearchParams(window.location.search).get('name');
+
+    document.getElementById('courseHeader').innerHTML=courseHeader;
+
+    document.addEventListener('DOMContentLoaded', async function() {
+  try {
+    const response = await fetch('http://localhost:54510/api/values/'+id);
+    if (!response.ok) {
+      throw new Error('Network response was not ok.');
+    }
+    const data = await response.json();
+    LoadContent(data);
+    LoadSubContent(data);
+    //console.log(data);
+    // store data in a variable or do something else with it
+  } catch (error) {
+    console.error('There was a problem with the fetch operation:', error);
+  }
+});
+
+// load Chapter
+function LoadContent(data){
+  //ChapterUL
+const container = document.getElementById('ChapterUL');
+
+// Create the list element
+const list = document.createElement('ul');
+list.classList.add('nav', 'nav-tabs', 'flex-column');
+
+// Iterate over each item in the data array and create a list item element for each item
+data.forEach((item, index) => {
+  // Create the list item element
+  const listItem = document.createElement('li');
+  listItem.classList.add('nav-item');
+
+  // Create the link element
+  const link = document.createElement('a');
+  link.classList.add('nav-link');
+  link.setAttribute('data-bs-toggle', 'tab');
+  link.setAttribute('href', `#tab-${item.id}`);
+  link.textContent = item.displayName;
+
+  // Append the link element to the list item element
+  listItem.appendChild(link);
+
+  // Append the list item element to the list element
+  list.appendChild(listItem);
+});
+
+// Append the list element to the container element
+container.appendChild(list);
+}
+
+function LoadSubContent(data){
+//SubModuleTabContent 
+const container = document.getElementById('SubModuleTabContent');
+
+for (let i = 0; i < data.length; i++) {
+  const tabPane = document.createElement('div');
+  tabPane.classList.add('tab-pane');
+  tabPane.id = `tab-${data[i].id}`;
+
+  const details = document.createElement('div');
+  details.classList.add('row', 'col-lg-8', 'details', 'order-2', 'order-lg-1');
+
+  const heading = document.createElement('h3');
+  heading.textContent = `${data[i].displayName}`;
+
+  const description = document.createElement('h5');
+  heading.textContent = `${data[i].description}`;
+
+  const wikiLink = document.createElement('a');
+  wikiLink.textContent = `Wiki Link`;
+  wikiLink.href=data[i].wikiLink;
+  wikiLink.target = '_blank'
+
+  const videoLink = document.createElement('a');
+  videoLink.textContent = `Video Link`;
+  videoLink.href=data[i].videoLink;
+  videoLink.target = '_blank';
+
+  details.appendChild(heading);
+  details.appendChild(description);
+  details.appendChild(wikiLink);
+  details.appendChild(videoLink);
+  tabPane.appendChild(details);
+
+  container.appendChild(tabPane);
+
+}
+}
+
+
+  </script>
 
 </body>
 
